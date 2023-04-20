@@ -14,29 +14,28 @@ app.use(
     })
 )
 
-app.use(cookieParser())
-app.use(express.json())
-
+app.use(express.json());
+app.use(cookieParser());
 const storage = multer.diskStorage({
-    destination: function (req, file, cd) {
-        cd(null, '../client/public/upload')
-    },
-    filename: function (req, file, cd) {
-        cd(null, Date.now() + file.originalname)
-    }
-})
+  destination: function (req, file, cb) {
+    cb(null, "../client/public/upload");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname);
+  },
+});
 
-const upload = multer(storage)
+const upload = multer({ storage });
 
-app.post('/api/upload', upload.single('file'), function (req, res) {
-    const file = req.file
-    res.status(200).json(file.filename)
-})
+app.post("/api/upload", upload.single("file"), function (req, res) {
+  const file = req.file;
+  res.status(200).json(file.filename);
+});
 
-app.use("/api/auth", authRouter)
-app.use("/api/users", userRouter)
-app.use("/api/posts", postRouter)
+app.use("/api/auth", authRouter);
+app.use("/api/users", userRouter);
+app.use("/api/posts", postRouter);
 
 app.listen(8000, () => {
     console.log("8000端口已启动");
-})
+});

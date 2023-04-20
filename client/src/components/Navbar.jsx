@@ -35,10 +35,10 @@ const Navbar = () => {
           </Link>
           <span>{currentUser?.username}</span>
           {currentUser ? (
-            <span onClick={logout}>Logout</span>
+            <span onClick={logout}>登出</span>
           ) : (
             <Link className="link" to="/login">
-              Login
+              登录
             </Link>
           )}
           <span className="write">
