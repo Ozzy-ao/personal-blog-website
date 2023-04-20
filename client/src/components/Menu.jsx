@@ -46,7 +46,7 @@ const Menu = ({ cat }) => {
       <h1>其他你可能喜欢的帖子</h1>
       {posts.map((post) => (
         <div className="post" key={post.id}>
-          <img src={post.img} alt="" />
+          <img src={`../upload/${post.img}`} alt="" />
           <h2>{post.title}</h2>
           <button>阅读全文</button>
         </div>

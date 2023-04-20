@@ -67,12 +67,12 @@ const Write = () => {
       </div>
       <div className="menu">
         <div className="item">
-          <h1>Publish</h1>
+          <h1>发布</h1>
           <span>
-            <b>Status:</b> Draft
+            <b>状态：</b> 草稿
           </span>
           <span>
-            <b>Visibility:</b> Public
+            <b>可见性：</b> 公开
           </span>
           <input
             style={{ display: "none" }}
@@ -82,15 +82,15 @@ const Write = () => {
             onChange={(e) => setFile(e.target.files[0])}
           />
           <label className="file" htmlFor="file">
-            Upload Image
+            上传图片
           </label>
           <div className="buttons">
-            <button>Save as a draft</button>
-            <button onClick={handleClick}>Publish</button>
+            <button>存为草稿</button>
+            <button onClick={handleClick}>发布</button>
           </div>
         </div>
         <div className="item">
-          <h1>Category</h1>
+          <h1>分类</h1>
           <div className="cat">
             <input
               type="radio"
